@@ -28,7 +28,7 @@ const Subscribe = ({ user, setUser }) => {
   const n = useNavigate();
   const [cc, setcc] = useState();
   const getcs = async (cost) => {
-    const response = await fetch("http://16.171.35.127:3000/secret", {
+    const response = await fetch("https://16.171.35.127:3000/secret", {
       headers: { Cost: cost },
     });
     const { client_secret } = await response.json();
