@@ -35,7 +35,7 @@ const Planscomponent = ({
       .catch((error) => {
         // An error happened.
       });
-  ("1");
+
   useEffect(() => {
     const checkactive = () => {
       document

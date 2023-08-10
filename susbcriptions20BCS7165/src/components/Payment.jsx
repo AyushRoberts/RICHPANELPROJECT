@@ -1,6 +1,7 @@
 import React from "react";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import Plans from "../assets/plans";
+import { useNavigate } from "react-router-dom";
 const Payment = ({
   user,
   addSubscription,
@@ -10,6 +11,7 @@ const Payment = ({
   activeplan,
   year,
 }) => {
+  const n = useNavigate();
   const stripe = useStripe();
   const elements = useElements();
   const selectedplan = Plans.find((p) => p.id === activeplan);
@@ -29,6 +31,7 @@ const Payment = ({
           const price = year ? selectedplan.yearprice : selectedplan.monthprice;
           addSubscription(user.uid, selectedplan.name, price, billcycle);
           setSubscribed(true);
+          n("/manage");
         }
       });
   };

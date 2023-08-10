@@ -24,7 +24,7 @@ const firebaseConfig = {
 };
 const app = initializeApp(firebaseConfig);
 // Initialize Realtime Database and get a reference to the service
-const Subscribe = ({ user, setUser }) => {
+const Subscribe = ({ next, setNext, user, setUser }) => {
   const n = useNavigate();
   const [cc, setcc] = useState();
   const getcs = async (cost) => {
@@ -37,7 +37,7 @@ const Subscribe = ({ user, setUser }) => {
   const [active, setActive] = useState("Mobile");
   const [activeplan, setActivePlan] = useState(1);
   const [year, setYear] = useState(false);
-  const [next, setNext] = useState(false);
+
   const [subscribed, setSubscribed] = useState(false);
 
   useEffect(() => {
@@ -54,9 +54,6 @@ const Subscribe = ({ user, setUser }) => {
     });
   };
 
-  useEffect(() => {
-    if (subscribed) n("/manage");
-  });
   return (
     <>
       <Elements stripe={stripePromise}>

@@ -25,28 +25,30 @@ const app = initializeApp(firebaseConfig);
 function App() {
   const [user, setUser] = useState("");
   const [currentlyactive, setcurrentlyactive] = useState(false);
+  const [un, setun] = useState("");
   const n = useNavigate();
   const [subscribed, setSubscribed] = useState(false);
   const [det, setDet] = useState();
+  const [next, setNext] = useState(false);
   useEffect(() => {
-    if (user && !subscribed) {
+    if (user != "" && user) {
+      setun(user.uid);
+    }
+    if (user && !currentlyactive) {
       n("/subscribe", { replace: true });
     }
-    if (subscribed) n("/manage");
-  }, [user]);
-  useEffect(() => {
+    if (user && currentlyactive) n("/manage");
     const db = getDatabase(app);
-    console.log(user.uid);
     const updatedata = (data) => setDet(data);
-    const getdet = ref(db, `subscriptions/${user.uid}`);
+    const getdet = ref(db, "subscriptions/" + un);
     onValue(getdet, (snapshot) => {
       const data = snapshot.val();
       if (data) setSubscribed(true);
       if (data && data.active == true) setcurrentlyactive(true);
-      else setcurrentlyactive(false);
+      else if (data && data.active == false) setcurrentlyactive(false);
       setDet(data);
     });
-  }, []);
+  });
   const cancelSubscription = (userId) => {
     const db = getDatabase(app);
     set(ref(db, "subscriptions/" + userId), {
@@ -61,12 +63,21 @@ function App() {
         <Route path="/" element={<Auth user={user} setUser={setUser} />} />
         <Route
           path="/subscribe"
-          element={<Subscribe setUser={setUser} user={user} />}
+          element={
+            <Subscribe
+              setNext={setNext}
+              next={next}
+              setUser={setUser}
+              user={user}
+            />
+          }
         />
         <Route
           path="/manage"
           element={
             <Manage
+              setNext={setNext}
+              next={next}
               user={user}
               det={det}
               cancelSubscription={cancelSubscription}

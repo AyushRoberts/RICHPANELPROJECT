@@ -24,7 +24,7 @@ const Login = ({ setlogin, setUser }) => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        setUser(user);
+        if (user) setUser(user);
         // ...
       })
       .catch((error) => {

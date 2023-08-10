@@ -1,11 +1,14 @@
 import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-const Manage = ({ det, cancelSubscription, user, currentlyactive }) => {
+const Manage = ({
+  det,
+  cancelSubscription,
+  user,
+  currentlyactive,
+  setNext,
+}) => {
   const n = useNavigate();
-  useEffect(() => {
-    if (user == "") n("/");
-  });
-  console.log(user);
+  useEffect(() => {});
   return (
     <>
       {det && (
@@ -27,7 +30,11 @@ const Manage = ({ det, cancelSubscription, user, currentlyactive }) => {
               {det.price ? det.price : "Nil"}
               {det.billcycle === "Yearly" ? "/yr" : "/month"}
             </p>
-            <Link to="/subscribe" className="changebut">
+            <Link
+              onClick={() => setNext(false)}
+              to="/subscribe"
+              className="changebut"
+            >
               Change Plan
             </Link>
             <p className="currentdate">
