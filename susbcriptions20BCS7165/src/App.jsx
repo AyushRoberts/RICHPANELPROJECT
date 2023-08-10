@@ -36,8 +36,9 @@ function App() {
   }, [user]);
   useEffect(() => {
     const db = getDatabase(app);
+    console.log(user.uid);
     const updatedata = (data) => setDet(data);
-    const getdet = ref(db, "subscriptions/" + user.uid);
+    const getdet = ref(db, `subscriptions/${user.uid}`);
     onValue(getdet, (snapshot) => {
       const data = snapshot.val();
       if (data) setSubscribed(true);
