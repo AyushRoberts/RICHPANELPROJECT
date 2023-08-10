@@ -1,0 +1,313 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+:root {
+  --primarycolour: #242491;
+}
+body {
+  font-family: "Poppins";
+  background-color: var(--primarycolour);
+}
+.line {
+  width: 100%;
+  position: absolute;
+  margin-top: 20px;
+}
+.maincont {
+  position: relative;
+}
+.signUpForm {
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 50px;
+  border-radius: 10px;
+  position: absolute;
+  left: 35vw;
+  top: 15vh;
+}
+.signUpForm p {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.3em;
+  margin-bottom: 30px;
+}
+.signUpForm input {
+  padding: 10px;
+  width: 300px;
+  border-radius: 5px;
+  border: 1px solid grey;
+  margin-bottom: 10px;
+}
+.inputlabel {
+  font-size: 0.9em;
+  font-weight: bold;
+  margin-bottom: -5px;
+}
+.check {
+  max-width: 15px;
+  margin-right: 10px;
+}
+.rememberme {
+  margin-block: 5px 20px;
+}
+.bluebut {
+  padding: 12px;
+  color: white;
+  background-color: var(--primarycolour);
+  border-radius: 5px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.loginForm {
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 50px;
+  border-radius: 10px;
+  position: absolute;
+  left: 35vw;
+  top: 15vh;
+}
+.loginForm p {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.3em;
+  margin-bottom: 30px;
+}
+.loginForm input {
+  padding: 10px;
+  width: 300px;
+  border-radius: 5px;
+  border: 1px solid grey;
+  margin-bottom: 10px;
+}
+.switchformcont {
+  margin-top: 20px;
+  text-align: center;
+}
+.switchform {
+  cursor: pointer;
+}
+
+.submaincont {
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.subtop {
+  text-align: center;
+  padding-top: 40px;
+  margin-bottom: 50px;
+}
+.submain {
+  display: flex;
+  justify-content: center;
+  gap: 150px;
+  position: relative;
+}
+.subdet {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.switcher {
+  display: flex;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+.switcherlist {
+  padding: 20px 20px;
+  border-radius: 40px;
+  width: 225px;
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  background-color: var(--primarycolour);
+}
+.switcheritem {
+  cursor: pointer;
+  padding: 5px 10px;
+}
+.switcheritem.activeswitcheritem {
+  background-color: white;
+  color: var(--primarycolour);
+  padding: 5px 10px;
+  border-radius: 40px;
+}
+.subcards {
+  display: flex;
+  gap: 50px;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+.planname {
+  cursor: pointer;
+  display: flex;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 120px;
+  background-color: #5b5b90;
+}
+
+.active {
+  color: var(--primarycolour);
+  font-weight: bold;
+}
+.active .planname {
+  position: relative;
+  background-color: var(--primarycolour);
+}
+.active .planname::after {
+  content: "";
+  position: absolute;
+  bottom: -13%;
+  border: 15px solid transparent;
+  border-top-color: var(--primarycolour);
+  border-bottom: 0;
+}
+.plandevices {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+}
+.subfooter {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+}
+
+.paymentcont {
+  display: flex;
+  position: absolute;
+  left: 25vw;
+  top: 35vh;
+  width: 50%;
+  height: auto;
+  background-color: white;
+  border-radius: 10px;
+}
+.paymentleft {
+  flex: 1;
+  padding: 30px;
+}
+.paymentright {
+  border-radius: 0 10px 10px 0;
+  padding: 30px;
+  flex-basis: 40%;
+  background-color: rgb(211, 211, 211);
+}
+.cardtext {
+  color: grey;
+  font-size: 0.8em;
+}
+.cardelement {
+  border: 1px solid;
+  padding: 12px;
+  border-radius: 5px;
+  margin-block: 20px;
+}
+.paybut {
+  width: auto;
+  margin-right: 10px;
+}
+.buydetailslist {
+  margin-top: 20px;
+  position: relative;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.buydetailsitem {
+  width: 100%;
+}
+.detailsheading {
+  font-size: 0.8em;
+}
+.detailsdesc {
+  font-size: 0.8em;
+  position: absolute;
+  right: 0;
+  padding-top: 4px;
+}
+.managecont {
+  position: absolute;
+  background-color: white;
+  height: auto;
+  max-width: 50%;
+  border-radius: 15px;
+  left: 30vw;
+  top: 30vh;
+  padding: 20px;
+}
+.manageholder {
+  position: relative;
+}
+.cancelbut {
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 4px;
+}
+
+.h3 {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+.status {
+  background-color: #afafe8;
+  color: var(--primarycolour);
+  font-size: 0.7em;
+  padding: 1px 5px;
+  position: absolute;
+  top: 6px;
+  border-radius: 5px;
+}
+.status.cancelled {
+  background-color: #ffc1c1;
+  color: red;
+}
+.currentname {
+  margin-top: 15px;
+}
+.currentdevices {
+  color: grey;
+  font-size: 0.8em;
+}
+.currentprice {
+  margin-block: 5px 20px;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.currentprice::before {
+  content: "₹ ";
+}
+.changebut {
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--primarycolour);
+  border: 2px solid var(--primarycolour);
+  background-color: white;
+  border-radius: 5px;
+  padding: 5px 15px;
+}
+.currentdate {
+  margin-top: 20px;
+  font-size: 0.8em;
+}
