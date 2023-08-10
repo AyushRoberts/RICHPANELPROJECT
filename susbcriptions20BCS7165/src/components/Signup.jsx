@@ -25,10 +25,6 @@ const Signup = ({ setlogin }) => {
         // Signed in
         setlogin(true);
         const user = userCredential.user;
-        user.updateProfile({
-          displayName: name,
-        });
-
         // ...
       })
       .catch((error) => {
