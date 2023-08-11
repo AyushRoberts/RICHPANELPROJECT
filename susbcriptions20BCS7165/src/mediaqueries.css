@@ -1,6 +1,6 @@
 @media screen and (max-width: 768px) {
   body {
-    font-size: small;
+    font-size: 10px;
   }
   .submain {
     flex-direction: column;
