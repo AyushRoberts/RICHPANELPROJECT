@@ -57,6 +57,7 @@ function App() {
     });
     setSubscribed(false);
     document.getElementsByClassName("status")[0].classList.add("cancelled");
+    document.getElementById("cancelbut").style.display = "none";
   };
   return (
     <>

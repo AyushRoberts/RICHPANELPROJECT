@@ -17,6 +17,7 @@ const Manage = ({
             <div
               onClick={() => cancelSubscription(user.uid)}
               className="cancelbut"
+              id="cancelbut"
             >
               Cancel
             </div>
