@@ -111,12 +111,12 @@ const Planscomponent = ({
                   <div onClick={() => handleactive(plan)} className="planname">
                     {plan.name}
                   </div>
-                  <div className="planprice">
+                  <div className="planprice plandet">
                     {year ? plan.yearprice : plan.monthprice}
                   </div>
-                  <div className="planquality">{plan.quality}</div>
-                  <div className="planres">{plan.res}</div>
-                  <div className="plandevices">
+                  <div className="planquality plandet">{plan.quality}</div>
+                  <div className="planres plandet">{plan.res}</div>
+                  <div className="plandevices plandet">
                     {plan.devices.map((device, i) => {
                       return (
                         <div key={i} className="deviceitem">

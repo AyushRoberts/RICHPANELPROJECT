@@ -10,7 +10,8 @@
   }
   .card {
     flex-direction: row;
-    gap: 70px;
+    gap: 50px;
+    justify-content: space-between;
   }
   .plandevices {
     gap: 10px;
@@ -27,11 +28,29 @@
   .subdet {
     flex-direction: row;
   }
+  .priceheading,
+  .qualityheding,
+  .resheading,
+  .devicehading {
+    display: flex;
+    align-items: center;
+  }
+  .plandet {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    height: 100px;
+    width: 50px;
+  }
   .switcherlist {
     flex-direction: column;
     width: 130px;
+    margin-left: 20px;
   }
   .line {
     display: none;
+  }
+  .submaincont {
+    overflow-x: hidden;
   }
 }
