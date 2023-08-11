@@ -1,0 +1,37 @@
+@media screen and (max-width: 768px) {
+  .submain {
+    flex-direction: column;
+    background-color: white;
+    gap: 50px;
+  }
+  .subcards {
+    flex-direction: column;
+    margin-left: 20px;
+  }
+  .card {
+    flex-direction: row;
+    gap: 70px;
+  }
+  .plandevices {
+    gap: 10px;
+  }
+  .active .planname::after {
+    content: "";
+    position: absolute;
+    top: 35%;
+    bottom: 40%;
+    right: -23%;
+    border: 15px solid transparent;
+    border-left-color: var(--primarycolour);
+  }
+  .subdet {
+    flex-direction: row;
+  }
+  .switcherlist {
+    flex-direction: column;
+    width: 130px;
+  }
+  .line {
+    display: none;
+  }
+}

@@ -10,6 +10,7 @@ import Manage from "./components/Manage";
 import Subscribe from "./components/Subscribe";
 import { initializeApp } from "firebase/app";
 import { getDatabase, onValue, ref, set } from "firebase/database";
+import "./mediaqueries.css";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 const firebaseConfig = {
