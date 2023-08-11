@@ -61,13 +61,16 @@ const Payment = ({
             <ul className="buydetailslist">
               <li className="buydetailsitem">
                 <span className="detailsheading">Plan Name</span>
+
                 <span className="detailsdesc">{selectedplan.name}</span>
+                <hr className="line2" />
               </li>
               <li className="buydetailsitem">
                 <span className="detailsheading">Billing Cycle</span>
                 <span className="detailsdesc">
                   {year ? "Yearly" : "Monthly"}
                 </span>
+                <hr className="line2" />
               </li>
               <li className="buydetailsitem">
                 <span className="detailsheading">Plan Price</span>

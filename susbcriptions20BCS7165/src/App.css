@@ -11,6 +11,10 @@ body {
   position: absolute;
   margin-top: 20px;
 }
+.line2 {
+  margin-top: 10px;
+  margin-bottom: -10px;
+}
 .maincont {
   position: relative;
 }
