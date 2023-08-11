@@ -75,6 +75,7 @@ const Payment = ({
               <li className="buydetailsitem">
                 <span className="detailsheading">Plan Price</span>
                 <span className="detailsdesc">
+                  {"₹"}
                   {year ? selectedplan.yearprice : selectedplan.monthprice}
                 </span>
                 <hr className="line2" />

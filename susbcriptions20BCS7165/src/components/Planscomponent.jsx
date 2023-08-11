@@ -112,6 +112,7 @@ const Planscomponent = ({
                     {plan.name}
                   </div>
                   <div className="planprice plandet">
+                    {"₹"}
                     {year ? plan.yearprice : plan.monthprice}
                   </div>
                   <div className="planquality plandet">{plan.quality}</div>
