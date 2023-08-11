@@ -26,6 +26,7 @@
   }
   .submaincont {
     padding: 20px;
+    overflow-x: hidden;
   }
   .plandevices {
     gap: 10px;
@@ -66,7 +67,13 @@
   .line {
     display: none;
   }
-  .submaincont {
-    overflow-x: hidden;
+  .paymentcont {
+    flex-direction: column-reverse;
+    top: 20vh;
+    left: 10vh;
+    width: 300px;
+  }
+  .paymentright {
+    border-radius: 10px 10px 0 0;
   }
 }
