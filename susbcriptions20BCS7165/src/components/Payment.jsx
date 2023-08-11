@@ -77,6 +77,7 @@ const Payment = ({
                 <span className="detailsdesc">
                   {year ? selectedplan.yearprice : selectedplan.monthprice}
                 </span>
+                <hr className="line2" />
               </li>
             </ul>
           </div>
