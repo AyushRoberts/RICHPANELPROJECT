@@ -1,17 +1,21 @@
-@media screen and (max-width: 968px) {
+@media screen and (max-width: 768px) {
+  body {
+    font-size: small;
+  }
   .submain {
     flex-direction: column;
     background-color: white;
-    gap: 50px;
+    gap: 40px;
   }
   .subcards {
     flex-direction: column;
     margin-left: 20px;
+    gap: 20px;
   }
   .card {
     flex-direction: row;
-    gap: 50px;
-    justify-content: space-around;
+    gap: 0px;
+    justify-content: space-between;
     overflow-x: auto;
     overflow-y: hidden;
   }
@@ -37,15 +41,17 @@
   .qualityheding,
   .resheading,
   .devicehading {
+    height: 100px;
+    width: 50px;
     display: flex;
     align-items: center;
   }
   .plandet {
     display: flex;
-    justify-items: center;
     align-items: center;
+    justify-content: center;
     height: 100px;
-    width: 50px;
+    width: 80px;
   }
   .switcherlist {
     flex-direction: column;
