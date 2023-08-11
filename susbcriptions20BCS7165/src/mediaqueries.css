@@ -1,4 +1,4 @@
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 968px) {
   .submain {
     flex-direction: column;
     background-color: white;
@@ -11,7 +11,12 @@
   .card {
     flex-direction: row;
     gap: 50px;
-    justify-content: space-between;
+    justify-content: space-around;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+  .submaincont {
+    padding: 20px;
   }
   .plandevices {
     gap: 10px;
