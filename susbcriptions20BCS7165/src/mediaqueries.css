@@ -1,6 +1,11 @@
 @media screen and (max-width: 768px) {
   body {
-    font-size: 10px;
+    font-size: 12px;
+  }
+  .signUpForm,
+  .loginForm {
+    left: 10vw;
+    top: 10vh;
   }
   .submain {
     flex-direction: column;
