@@ -36,6 +36,10 @@ const Subscribe = ({ next, setNext }) => {
       plan: name,
       price: price,
       billcycle: billcycle,
+      date: new Date().toLocaleString("en-IN", {
+        day: "2-digit",
+        month: "long",
+      }),
     });
   };
 

@@ -3,7 +3,6 @@ import {
   getAuth,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
-  sendPasswordResetEmail,
   signOut,
 } from "firebase/auth";
 import { getFirestore, setDoc, doc } from "firebase/firestore";
@@ -43,24 +42,6 @@ const signUpHandle = async (name, email, password) => {
       },
       { merge: true }
     );
-    // await addDoc(collection(db, "users", user.uid), {
-    //   uid: user.uid,
-    //   name,
-    //   subscriptionactive: false,
-    //   plan: "n/a",
-    //   billcycle: "n/a",
-    //   email,
-    // });
-  } catch (err) {
-    console.error(err);
-    alert(err.message);
-  }
-};
-
-const sendPasswordReset = async (email) => {
-  try {
-    await sendPasswordResetEmail(auth, email);
-    alert("Password reset link sent!");
   } catch (err) {
     console.error(err);
     alert(err.message);
@@ -69,4 +50,4 @@ const sendPasswordReset = async (email) => {
 const logout = () => {
   signOut(auth);
 };
-export { auth, db, loginHandle, signUpHandle, sendPasswordReset, logout };
+export { auth, db, loginHandle, signUpHandle, logout };

@@ -18,7 +18,6 @@ function App() {
   useEffect(() => {
     if (!user) n("/");
   }, [user]);
-
   useEffect(() => {
     const checkActive = async () => {
       if (user) {
@@ -34,7 +33,6 @@ function App() {
     };
     checkActive();
   }, [user]);
-
   useEffect(() => {
     const checkActive = async () => {
       if (user) {
@@ -49,10 +47,8 @@ function App() {
     };
     checkActive();
   }, [det]);
-
   const cancelSubscription = async () => {
     const userref = doc(db, "users", user.uid);
-
     await updateDoc(userref, {
       subscriptionactive: false,
     });
