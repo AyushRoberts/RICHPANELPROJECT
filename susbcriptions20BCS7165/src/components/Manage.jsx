@@ -23,7 +23,9 @@ const Manage = ({ det, cancelSubscription, currentlyactive, setNext }) => {
               {currentlyactive ? "Active" : "Cancelled"}
             </span>
             <p className="currentname">{det.plan ? det.plan : "Cancelled"}</p>
-            <p className="currentdevices">Phone+Tablet</p>
+            <p className="currentdevices">
+              {det.plan === "Mobile" ? "Phone+Tablet" : "All Devices"}
+            </p>
             <p className="currentprice">
               {det.price ? det.price : "Nil"}
               {det.billcycle === "Yearly" ? "/yr" : "/month"}
