@@ -1,12 +1,6 @@
 import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-const Manage = ({
-  det,
-  cancelSubscription,
-  user,
-  currentlyactive,
-  setNext,
-}) => {
+const Manage = ({ det, cancelSubscription, currentlyactive, setNext }) => {
   const n = useNavigate();
   useEffect(() => {});
   return (
@@ -15,7 +9,10 @@ const Manage = ({
         <div className="managecont">
           <div className="manageholder">
             <div
-              onClick={() => cancelSubscription(user.uid)}
+              onClick={() => {
+                setNext(false);
+                cancelSubscription();
+              }}
               className="cancelbut"
               id="cancelbut"
             >
@@ -32,7 +29,9 @@ const Manage = ({
               {det.billcycle === "Yearly" ? "/yr" : "/month"}
             </p>
             <Link
-              onClick={() => setNext(false)}
+              onClick={() => {
+                setNext(false);
+              }}
               to="/subscribe"
               className="changebut"
             >

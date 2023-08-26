@@ -7,9 +7,9 @@ const Payment = ({
   addSubscription,
   setNext,
   client_secret,
-  setSubscribed,
   activeplan,
   year,
+  setYear,
 }) => {
   const n = useNavigate();
   const stripe = useStripe();
@@ -30,7 +30,6 @@ const Payment = ({
           const billcycle = year ? "Yearly" : "Monthly";
           const price = year ? selectedplan.yearprice : selectedplan.monthprice;
           addSubscription(user.uid, selectedplan.name, price, billcycle);
-          setSubscribed(true);
           n("/manage");
         }
       });
@@ -51,7 +50,13 @@ const Payment = ({
           <button className="bluebut paybut" onClick={makePay}>
             Confirm Payment
           </button>
-          <button className="bluebut paybut" onClick={() => setNext(false)}>
+          <button
+            className="bluebut paybut"
+            onClick={() => {
+              setYear(false);
+              setNext(false);
+            }}
+          >
             Back
           </button>
         </div>

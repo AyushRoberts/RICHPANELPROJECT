@@ -1,20 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Plans from "../assets/plans";
-import { initializeApp } from "firebase/app";
-import { getAuth, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-const firebaseConfig = {
-  apiKey: "AIzaSyCGmv-V-_vxvYCePBJ3zKeHbNa3oq1PwUQ",
-  authDomain: "subscription20bcs7165.firebaseapp.com",
-  projectId: "subscription20bcs7165",
-  storageBucket: "subscription20bcs7165.appspot.com",
-  messagingSenderId: "580129118396",
-  appId: "1:580129118396:web:735c45bbbbe93c741dd8b9",
-  databaseURL: "https://subscription20bcs7165-default-rtdb.firebaseio.com/",
-};
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-
+import { logout } from "../firebase";
 const Planscomponent = ({
   active,
   setActive,
@@ -25,16 +12,6 @@ const Planscomponent = ({
   setYear,
 }) => {
   const n = useNavigate();
-  const logout = () =>
-    signOut(auth)
-      .then(() => {
-        setUser();
-        n("/");
-        // Sign-out successful.
-      })
-      .catch((error) => {
-        // An error happened.
-      });
 
   useEffect(() => {
     const checkactive = () => {

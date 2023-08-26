@@ -1,37 +1,17 @@
-import React, { useState } from "react";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { initializeApp } from "firebase/app";
+import React, { useEffect, useState } from "react";
+import { auth, signUpHandle } from "../firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyCGmv-V-_vxvYCePBJ3zKeHbNa3oq1PwUQ",
-  authDomain: "subscription20bcs7165.firebaseapp.com",
-  projectId: "subscription20bcs7165",
-  storageBucket: "subscription20bcs7165.appspot.com",
-  messagingSenderId: "580129118396",
-  appId: "1:580129118396:web:735c45bbbbe93c741dd8b9",
-  databaseURL: "https://subscription20bcs7165-default-rtdb.firebaseio.com/",
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
 const Signup = ({ setlogin }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
-  const signUpHandle = (email, password) =>
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in
-        setlogin(true);
-        const user = userCredential.user;
-        // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        alert(errorMessage); // ..
-      });
+  const [user] = useAuthState(auth);
+  useEffect(() => {
+    if (user) {
+      setlogin(true);
+    }
+  }, [user]);
   return (
     <>
       <div className="maincont">
@@ -73,8 +53,13 @@ const Signup = ({ setlogin }) => {
             />
             Remember Me
           </label>
-          <button className="bluebut" onClick={() => signUpHandle(email, pass)}>
-            Sign Up
+          <button
+            className="bluebut"
+            onClick={() => {
+              signUpHandle(name, email, pass);
+            }}
+          >
+            Get Started
           </button>
           <div className="switchformcont">
             Already have an account?{" "}

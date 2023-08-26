@@ -1,78 +1,72 @@
 import { useEffect, useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 import { Routes, Route, useNavigate } from "react-router-dom";
-import Signup from "./components/Signup";
-import Login from "./components/Login";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { auth, db } from "./firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
 import Auth from "./components/Auth";
 import Manage from "./components/Manage";
 import Subscribe from "./components/Subscribe";
-import { initializeApp } from "firebase/app";
-import { getDatabase, onValue, ref, set } from "firebase/database";
 import "./mediaqueries.css";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-const firebaseConfig = {
-  apiKey: "AIzaSyCGmv-V-_vxvYCePBJ3zKeHbNa3oq1PwUQ",
-  authDomain: "subscription20bcs7165.firebaseapp.com",
-  projectId: "subscription20bcs7165",
-  storageBucket: "subscription20bcs7165.appspot.com",
-  messagingSenderId: "580129118396",
-  appId: "1:580129118396:web:735c45bbbbe93c741dd8b9",
-  databaseURL: "https://subscription20bcs7165-default-rtdb.firebaseio.com/",
-};
-const app = initializeApp(firebaseConfig);
+
 function App() {
-  const [user, setUser] = useState("");
+  const [user] = useAuthState(auth);
   const [currentlyactive, setcurrentlyactive] = useState(false);
-  const [un, setun] = useState("");
   const n = useNavigate();
-  const [subscribed, setSubscribed] = useState(false);
   const [det, setDet] = useState();
   const [next, setNext] = useState(false);
   useEffect(() => {
-    if (user != "" && user) {
-      setun(user.uid);
-    }
-    if (user && !currentlyactive) {
-      n("/subscribe", { replace: true });
-    }
-    if (user && currentlyactive) n("/manage");
-    const db = getDatabase(app);
-    const updatedata = (data) => setDet(data);
-    const getdet = ref(db, "subscriptions/" + un);
-    onValue(getdet, (snapshot) => {
-      const data = snapshot.val();
-      if (data) setSubscribed(true);
-      if (data && data.active == true) setcurrentlyactive(true);
-      else if (data && data.active == false) setcurrentlyactive(false);
-      setDet(data);
+    if (!user) n("/");
+  }, [user]);
+
+  useEffect(() => {
+    const checkActive = async () => {
+      if (user) {
+        const docRef = doc(db, "users", user.uid);
+        const docSnap = await getDoc(docRef);
+        const userData = docSnap.data();
+        setDet(userData);
+        if (userData.subscriptionactive) {
+          setcurrentlyactive(true);
+          n("/manage");
+        }
+      }
+    };
+    checkActive();
+  }, [user]);
+
+  useEffect(() => {
+    const checkActive = async () => {
+      if (user) {
+        const docRef = doc(db, "users", user.uid);
+        const docSnap = await getDoc(docRef);
+        const userData = docSnap.data();
+        setDet(userData);
+        if (userData.subscriptionactive) {
+          setcurrentlyactive(true);
+        }
+      }
+    };
+    checkActive();
+  }, [det]);
+
+  const cancelSubscription = async () => {
+    const userref = doc(db, "users", user.uid);
+
+    await updateDoc(userref, {
+      subscriptionactive: false,
     });
-  });
-  const cancelSubscription = (userId) => {
-    const db = getDatabase(app);
-    set(ref(db, "subscriptions/" + userId), {
-      active: false,
-    });
-    setSubscribed(false);
+    setcurrentlyactive(false);
     document.getElementsByClassName("status")[0].classList.add("cancelled");
     document.getElementById("cancelbut").style.display = "none";
   };
   return (
     <>
       <Routes>
-        <Route path="/" element={<Auth user={user} setUser={setUser} />} />
+        <Route path="/" element={<Auth />} />
         <Route
           path="/subscribe"
-          element={
-            <Subscribe
-              setNext={setNext}
-              next={next}
-              setUser={setUser}
-              user={user}
-            />
-          }
+          element={<Subscribe setNext={setNext} next={next} />}
         />
         <Route
           path="/manage"
@@ -84,6 +78,7 @@ function App() {
               det={det}
               cancelSubscription={cancelSubscription}
               currentlyactive={currentlyactive}
+              setcurrentlyactive={setcurrentlyactive}
             />
           }
         />

@@ -1,37 +1,15 @@
-import React, { useState } from "react";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { initializeApp } from "firebase/app";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-const firebaseConfig = {
-  apiKey: "AIzaSyCGmv-V-_vxvYCePBJ3zKeHbNa3oq1PwUQ",
-  authDomain: "subscription20bcs7165.firebaseapp.com",
-  projectId: "subscription20bcs7165",
-  storageBucket: "subscription20bcs7165.appspot.com",
-  messagingSenderId: "580129118396",
-  appId: "1:580129118396:web:735c45bbbbe93c741dd8b9",
-  databaseURL: "https://subscription20bcs7165-default-rtdb.firebaseio.com/",
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const Login = ({ setlogin, setUser }) => {
+import { auth, loginHandle } from "../firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
+const Login = ({ setlogin }) => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
-
-  const loginHandle = (email, password) =>
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        if (user) setUser(user);
-        // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        alert(errorMessage);
-      });
+  const [user] = useAuthState(auth);
+  const n = useNavigate();
+  useEffect(() => {
+    if (user) n("/subscribe");
+  }, [user]);
   return (
     <div className="maincont">
       <div className="loginForm">
