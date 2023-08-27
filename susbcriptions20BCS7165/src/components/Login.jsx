@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { auth, loginHandle } from "../firebase";
+import {
+  auth,
+  loginHandle,
+  setPersistence,
+  browserSessionPersistence,
+  browserLocalPersistence,
+} from "../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 const Login = ({ setlogin }) => {
   const [email, setEmail] = useState("");
@@ -8,8 +14,19 @@ const Login = ({ setlogin }) => {
   const [user] = useAuthState(auth);
   const n = useNavigate();
   useEffect(() => {
+    document.getElementById("remember").checked = "true";
+    setPersistence(auth, browserLocalPersistence);
+  }, []);
+
+  useEffect(() => {
     if (user) n("/subscribe");
   }, [user]);
+  const handleRemember = () => {
+    const ischecked = document.getElementById("remember").checked;
+    ischecked
+      ? setPersistence(auth, browserLocalPersistence)
+      : setPersistence(auth, browserSessionPersistence);
+  };
   return (
     <div className="maincont">
       <div className="loginForm">
@@ -38,6 +55,7 @@ const Login = ({ setlogin }) => {
             type="checkbox"
             name="remember"
             id="remember"
+            onClick={handleRemember}
           />
           Remember Me
         </label>

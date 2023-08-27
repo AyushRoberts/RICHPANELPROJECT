@@ -4,6 +4,9 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   signOut,
+  setPersistence,
+  browserSessionPersistence,
+  browserLocalPersistence,
 } from "firebase/auth";
 import { getFirestore, setDoc, doc } from "firebase/firestore";
 const firebaseConfig = {
@@ -50,4 +53,13 @@ const signUpHandle = async (name, email, password) => {
 const logout = () => {
   signOut(auth);
 };
-export { auth, db, loginHandle, signUpHandle, logout };
+export {
+  auth,
+  db,
+  loginHandle,
+  signUpHandle,
+  logout,
+  setPersistence,
+  browserSessionPersistence,
+  browserLocalPersistence,
+};
