@@ -19,7 +19,7 @@ function App() {
     if (!user) n("/");
   }, [user]);
   useEffect(() => {
-    const checkActive = async () => {
+    const checkAlreadyActive = async () => {
       if (user) {
         const docRef = doc(db, "users", user.uid);
         const docSnap = await getDoc(docRef);
@@ -31,10 +31,10 @@ function App() {
         }
       }
     };
-    checkActive();
+    checkAlreadyActive();
   }, [user]);
   useEffect(() => {
-    const checkActive = async () => {
+    const checkAlreadyActive = async () => {
       if (user) {
         const docRef = doc(db, "users", user.uid);
         const docSnap = await getDoc(docRef);
@@ -45,7 +45,7 @@ function App() {
         }
       }
     };
-    checkActive();
+    checkAlreadyActive();
   }, [det]);
   const cancelSubscription = async () => {
     const userref = doc(db, "users", user.uid);

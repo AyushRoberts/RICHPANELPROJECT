@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 :root {
-  --primarycolour: #1f4c90;
+  --primarycolour: #db0000;
 }
 body {
   font-family: "Poppins";
@@ -163,7 +163,7 @@ body {
   align-items: center;
   height: 100px;
   width: 120px;
-  background-color: #5b5b90;
+  background-color: #831010;
 }
 
 .active {
