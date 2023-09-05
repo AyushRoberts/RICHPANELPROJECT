@@ -1,10 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 :root {
-  --primarycolour: #db0000;
+  --primarycolour: #cc0000;
 }
 body {
   font-family: "Poppins";
-  background-color: var(--primarycolour);
+  background-color: black;
 }
 .line {
   width: 100%;
@@ -314,4 +314,135 @@ body {
 .currentdate {
   margin-top: 20px;
   font-size: 0.8em;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 75px;
+}
+.searchBar {
+  margin-top: 3vh;
+  height: 30px;
+  width: 500px;
+}
+.watchmaincont {
+  color: white;
+  background-color: black;
+  height: 100%;
+  width: 100%;
+}
+.contentrow {
+  padding-inline: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 10px;
+  justify-content: space-around;
+}
+.showbox {
+  background-color: #ffffff10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  width: 275px;
+  height: 140px;
+  overflow: hidden;
+  transition: 0.1s ease-in;
+}
+.showbox:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  background-color: #ffffff40;
+}
+.showpic {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.modalmaincont {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  background-color: #00000088;
+  backdrop-filter: blur(5px);
+  height: 100vh;
+  width: 100%;
+  z-index: 99;
+  position: fixed;
+}
+.modalmainbox {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  margin-top: 30px;
+  background-color: #343434aa;
+  backdrop-filter: blur(20px);
+  width: 60%;
+  height: 100%;
+  color: white;
+  transform: scale(0.05);
+  transition: 0.2s ease;
+  overflow: scroll;
+  gap: 20px;
+}
+.modalmainbox::-webkit-scrollbar {
+  display: none;
+}
+.modalmaincont:hover > .modalmainbox {
+  transform: scale(1);
+}
+.modalclosebut {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  border-radius: 20px;
+  height: 40px;
+  width: 40px;
+  background-color: #000000dd;
+  color: white;
+  font-size: large;
+}
+.modalboximg {
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  width: 100%;
+}
+.modallogopic {
+  margin-left: 20px;
+  width: 300px;
+  height: 400px;
+  object-fit: contain;
+  object-position: bottom;
+}
+.playbut {
+  width: 100px;
+  padding-block: 10px;
+  margin-left: 25px;
+  background-color: white;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+.showdetails {
+  display: flex;
+  padding-inline: 35px;
+  gap: 50px;
+}
+.leftdet {
+  flex: 1;
+}
+.rightdet {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  flex-basis: 200px;
+}
+
+.footer {
+  color: white;
+  padding-top: 50px;
 }

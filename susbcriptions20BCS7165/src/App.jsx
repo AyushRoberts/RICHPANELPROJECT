@@ -8,6 +8,7 @@ import Auth from "./components/Auth";
 import Manage from "./components/Manage";
 import Subscribe from "./components/Subscribe";
 import "./mediaqueries.css";
+import Watch from "./components/Watch";
 
 function App() {
   const [user] = useAuthState(auth);
@@ -27,7 +28,7 @@ function App() {
         setDet(userData);
         if (userData.subscriptionactive) {
           setcurrentlyactive(true);
-          n("/manage");
+          n("/watch");
         }
       }
     };
@@ -78,6 +79,7 @@ function App() {
             />
           }
         />
+        <Route path="/watch" element={<Watch />} />
       </Routes>
     </>
   );

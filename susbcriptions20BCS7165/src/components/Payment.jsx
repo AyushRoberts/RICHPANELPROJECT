@@ -30,6 +30,7 @@ const Payment = ({
           const billcycle = year ? "Yearly" : "Monthly";
           const price = year ? selectedplan.yearprice : selectedplan.monthprice;
           addSubscription(user.uid, selectedplan.name, price, billcycle);
+          alert("refresh to start watching");
           n("/manage");
         }
       });

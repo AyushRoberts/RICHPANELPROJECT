@@ -55,8 +55,8 @@ const Signup = ({ setlogin }) => {
           </label>
           <button
             className="bluebut"
-            onClick={() => {
-              signUpHandle(name, email, pass);
+            onClick={(e) => {
+              signUpHandle(e, name, email, pass);
             }}
           >
             Get Started

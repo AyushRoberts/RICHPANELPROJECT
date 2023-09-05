@@ -29,7 +29,7 @@ const Login = ({ setlogin }) => {
   };
   return (
     <div className="maincont">
-      <div className="loginForm">
+      <form className="loginForm">
         <p>Login To Your Account</p>
         <label className="inputlabel" htmlFor="em">
           E-Mail
@@ -59,7 +59,11 @@ const Login = ({ setlogin }) => {
           />
           Remember Me
         </label>
-        <button className="bluebut" onClick={() => loginHandle(email, pass)}>
+        <button
+          type="submit"
+          className="bluebut"
+          onClick={(e) => loginHandle(e, email, pass)}
+        >
           Login
         </button>
         <div className="switchformcont">
@@ -68,7 +72,7 @@ const Login = ({ setlogin }) => {
             Sign Up
           </span>
         </div>
-      </div>
+      </form>
     </div>
   );
 };

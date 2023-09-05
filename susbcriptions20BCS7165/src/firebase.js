@@ -20,7 +20,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
-const loginHandle = async (email, password) => {
+const loginHandle = async (e, email, password) => {
+  e.preventDefault();
   try {
     await signInWithEmailAndPassword(auth, email, password);
   } catch (err) {
@@ -28,7 +29,8 @@ const loginHandle = async (email, password) => {
     alert(err.message);
   }
 };
-const signUpHandle = async (name, email, password) => {
+const signUpHandle = async (e, name, email, password) => {
+  e.preventDefault();
   try {
     const res = await createUserWithEmailAndPassword(auth, email, password);
     const user = res.user;

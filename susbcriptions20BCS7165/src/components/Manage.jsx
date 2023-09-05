@@ -44,6 +44,9 @@ const Manage = ({ det, cancelSubscription, currentlyactive, setNext }) => {
               renew in {det.billcycle === "Yearly" ? "1 Year" : "1 month"}
             </p>
           </div>
+          {/* <Link to="/watch" className="bluebut">
+            Lets Watch
+          </Link> */}
         </div>
       )}
     </>
