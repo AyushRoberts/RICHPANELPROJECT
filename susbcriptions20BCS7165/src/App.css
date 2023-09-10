@@ -315,16 +315,43 @@ body {
   margin-top: 20px;
   font-size: 0.8em;
 }
-
+a {
+  text-decoration: none;
+  color: white;
+}
 .navbar {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 55px;
+  padding-top: 25px;
+}
+.logo {
+  margin-left: 40px;
+  height: 100px;
+  width: 300px;
+}
+.logoimg {
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+}
+.navlist {
+  list-style: none;
   display: flex;
   justify-content: center;
-  padding-bottom: 75px;
+  align-items: center;
+  gap: 30px;
+  margin-right: 50px;
 }
-.searchBar {
+.navitem {
+  cursor: pointer;
+}
+.searchCont {
+  position: absolute;
   margin-top: 3vh;
-  height: 30px;
-  width: 500px;
+  right: 180px;
+  top: 80px;
 }
 .watchmaincont {
   color: white;
@@ -363,6 +390,7 @@ body {
 }
 
 .modalmaincont {
+  /* visibility: hidden; */
   display: flex;
   justify-content: center;
   position: absolute;
@@ -384,7 +412,7 @@ body {
   width: 60%;
   height: 100%;
   color: white;
-  transform: scale(0.05);
+  transform: scale(0.001);
   transition: 0.2s ease;
   overflow: scroll;
   gap: 20px;

@@ -38,15 +38,15 @@ const Manage = ({ det, cancelSubscription, currentlyactive, setNext }) => {
               className="changebut"
             >
               Change Plan
+            </Link>{" "}
+            <Link to="/watch" className="bluebut">
+              Lets Watch
             </Link>
             <p className="currentdate">
               Your subscription has started on {det.date}, 2022 and will auto
               renew in {det.billcycle === "Yearly" ? "1 Year" : "1 month"}
             </p>
           </div>
-          {/* <Link to="/watch" className="bluebut">
-            Lets Watch
-          </Link> */}
         </div>
       )}
     </>
