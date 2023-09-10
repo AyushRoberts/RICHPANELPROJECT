@@ -63,9 +63,13 @@ const Payment = ({
           <button
             style={{ marginTop: "15px", backgroundColor: "green" }}
             className="bluebut"
-            onClick={() => alert("Please use 4242424242424242 and any CVV")}
+            onClick={() =>
+              alert(
+                "Click on the lock icon on url bar \nGo to site settings Look for 'Insecure Content'\nAllow it\nAfter that please use Card 4242424242424242 and any CVV"
+              )
+            }
           >
-            <b>HOW TO PAY</b>
+            <b>HOW DO I PAY?</b>
           </button>
         </div>
         <div className="paymentright">
