@@ -84,6 +84,7 @@ const Watch = () => {
                   <div
                     style={{
                       backgroundImage: `url(${item.jawSummary.backgroundImage.url})`,
+                      backgroundSize: "contain",
                     }}
                     onMouseEnter={(e) =>
                       (e.target.style = `background-image:url(${item.jawSummary.backgroundImage.url});background-size:cover`)
