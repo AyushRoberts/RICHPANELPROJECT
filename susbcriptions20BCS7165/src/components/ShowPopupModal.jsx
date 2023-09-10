@@ -42,8 +42,8 @@ const ShowPopupModal = ({ currentShow, setShowModal }) => {
           ) : (
             currentShow.jawSummary.title
           )}
-          <button className="playbut">Play</button>
         </div>
+        <button className="playbut">Play</button>
         <div className="showdetails">
           <div className="leftdet">
             <div className="lefttop">

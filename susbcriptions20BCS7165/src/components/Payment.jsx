@@ -60,6 +60,13 @@ const Payment = ({
           >
             Back
           </button>
+          <button
+            style={{ marginTop: "15px", backgroundColor: "green" }}
+            className="bluebut"
+            onClick={() => alert("Please use 4242424242424242 and any CVV")}
+          >
+            <b>HOW TO PAY</b>
+          </button>
         </div>
         <div className="paymentright">
           <h3>Order Summary</h3>

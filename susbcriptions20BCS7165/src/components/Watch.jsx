@@ -46,7 +46,7 @@ const Watch = () => {
             Search
           </li>
           <Link className="navitem" to="/manage">
-            Manage
+            Manage Plan
           </Link>
           <li onClick={logout} className="navitem">
             Logout
@@ -82,11 +82,14 @@ const Watch = () => {
               searchResults.map((item) => {
                 return (
                   <div
+                    style={{
+                      backgroundImage: `url(${item.jawSummary.backgroundImage.url})`,
+                    }}
                     onMouseEnter={(e) =>
-                      (e.target.style = `background-image:url(${item.jawSummary.backgroundImage.url});background-size:contain`)
+                      (e.target.style = `background-image:url(${item.jawSummary.backgroundImage.url});background-size:cover`)
                     }
                     onMouseLeave={(e) =>
-                      (e.target.style = `background-image:url()`)
+                      (e.target.style.backgroundSize = `contain`)
                     }
                     className="showbox"
                     onClick={() => {

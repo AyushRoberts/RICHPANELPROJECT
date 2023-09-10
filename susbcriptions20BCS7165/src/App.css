@@ -448,6 +448,7 @@ a {
   object-position: bottom;
 }
 .playbut {
+  cursor: pointer;
   width: 100px;
   padding-block: 10px;
   margin-left: 25px;
