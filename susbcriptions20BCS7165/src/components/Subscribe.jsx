@@ -19,7 +19,7 @@ const Subscribe = ({ next, setNext }) => {
   const [activeplan, setActivePlan] = useState(1);
   const [year, setYear] = useState(false);
   const getcs = async (cost) => {
-    const response = await fetch("http://16.171.35.127:3000/secret", {
+    const response = await fetch("http://16.171.35.127:3000/getClientSec", {
       headers: { Cost: cost },
     });
     const { client_secret } = await response.json();
