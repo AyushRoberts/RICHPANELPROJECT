@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const axios = require("axios");
+const backupres = require("./apiResponsebackup");
 app.use(cors());
 const CircularJSON = require("circular-json");
 const stripe = require("stripe")(
@@ -42,12 +43,16 @@ app.get("/fetchNetflix", async (req, res) => {
       "X-RapidAPI-Host": "netflix54.p.rapidapi.com",
     },
   };
-  console.log("calling api");
+  console.log("sending backup");
   try {
-    const response = await axios.request(options);
-    const str = CircularJSON.stringify(response);
-    const finalObj = JSON.parse(str);
-    const sendRes = [finalObj.data.titles, finalObj.data.suggestions];
+    // const response = await axios.request(options);
+    // const str = CircularJSON.stringify(response);
+    // const finalObj = JSON.parse(str);
+    // const sendRes =
+    //   finalObj.data.titles.length > 0
+    //     ? [finalObj.data.titles, finalObj.data.suggestions]
+    //     : [backupres.titles, backupres.suggestions];
+    const sendRes = [backupres.titles, backupres.suggestions];
     res.send(sendRes);
   } catch (error) {
     console.log("error");
