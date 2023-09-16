@@ -16,7 +16,7 @@ const Watch = () => {
   const [loaded, setLoaded] = useState(false);
   const getnf = async (searchTerm) =>
     await axios
-      .get("http://localhost:3000/fetchNetflix", {
+      .get("http://16.171.35.127:3000/fetchNetflix", {
         headers: {
           searchTerm: searchTerm,
         },
