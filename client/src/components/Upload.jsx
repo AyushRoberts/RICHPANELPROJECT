@@ -26,7 +26,7 @@ const Upload = ({ setUpload }) => {
       const data = new FormData();
       data.append("ayushfile", file, file.name);
       axios
-        .post("http://localhost:3000/upload", data, {
+        .post("http://16.171.35.127:3000/upload", data, {
           onUploadProgress: (ProgressEvent) => {
             setUploadProgress(
               Math.round((ProgressEvent.loaded / ProgressEvent.total) * 100)
