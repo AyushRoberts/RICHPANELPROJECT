@@ -36,7 +36,7 @@ const Files = ({ setFile }) => {
                       className="uploadedvidlistitemname"
                       onClick={async (event) => {
                         event.stopPropagation();
-                        setName(`http://localhost:3000/play?vid=${e}`);
+                        setName(`http://16.171.35.127:3000/play?vid=${e}`);
                         setPlayer(true);
                       }}
                     >
