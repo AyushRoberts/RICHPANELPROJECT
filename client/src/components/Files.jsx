@@ -8,7 +8,7 @@ const Files = ({ setFile }) => {
   const [player, setPlayer] = useState(false);
   const [name, setName] = useState();
   const getFiles = async () => {
-    const files = await axios.get("http://localhost:3000/files");
+    const files = await axios.get("http://16.171.35.127:3000/files");
     console.log(files);
     setFileList(files.data);
   };
@@ -16,7 +16,7 @@ const Files = ({ setFile }) => {
     getFiles();
   }, []);
   const deleteVid = async (name) => {
-    axios.post(`http://localhost:3000/delete?vid=${name}`).then(getFiles());
+    axios.post(`http://16.171.35.127:3000/delete?vid=${name}`).then(getFiles());
   };
   return (
     <>
