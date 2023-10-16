@@ -3,7 +3,18 @@ const app = express();
 const cors = require("cors");
 const axios = require("axios");
 const backupres = require("./apiResponsebackup");
+const fileUpload = require("express-fileupload");
+const fs = require("fs");
+
 app.use(cors());
+app.use(
+  fileUpload({
+    useTempFiles: true,
+    safeFileNames: true,
+    preserveExtension: true,
+    tempFileDir: `${__dirname}/files/temp`,
+  })
+);
 const CircularJSON = require("circular-json");
 const stripe = require("stripe")(
   "sk_test_51NdCoiSFgNssnXOVeOPbujpmoi8A7aiMQzzdzqA9AYux8dMG8AHLEDZ4ru0unUr6kDShvmKbCy3m3uu7t7UOSR2F00GpvRYY89"
@@ -43,20 +54,51 @@ app.get("/fetchNetflix", async (req, res) => {
       "X-RapidAPI-Host": "netflix54.p.rapidapi.com",
     },
   };
-  console.log("sending backup");
+  console.log("sending");
   try {
-    // const response = await axios.request(options);
-    // const str = CircularJSON.stringify(response);
-    // const finalObj = JSON.parse(str);
-    // const sendRes =
-    //   finalObj.data.titles.length > 0
-    //     ? [finalObj.data.titles, finalObj.data.suggestions]
-    //     : [backupres.titles, backupres.suggestions];
-    const sendRes = [backupres.titles, backupres.suggestions];
+    const response = await axios.request(options);
+    const str = CircularJSON.stringify(response);
+    const finalObj = JSON.parse(str);
+    const sendRes =
+      finalObj.data.titles.length > 0
+        ? [finalObj.data.titles, finalObj.data.suggestions]
+        : [backupres.titles, backupres.suggestions];
+    // const sendRes = [backupres.titles, backupres.suggestions];
     res.send(sendRes);
   } catch (error) {
-    console.log("error");
+    console.log(error);
   }
+});
+
+app.post("/upload", (req, res) => {
+  const uploadFile = req.files.ayushfile;
+  const name = uploadFile.name;
+  const md5 = uploadFile.md5;
+  const saveAs = `${md5}_${name}`;
+  uploadFile.mv(`${__dirname}/files/${saveAs}`, function (err) {
+    if (err) {
+      return res.status(500).send(err);
+    }
+    return res.status(200).json({ status: "uploaded", name, saveAs });
+  });
+});
+
+app.get("/files", function (req, res) {
+  fs.readdir(__dirname + "/files", (err, files) => {
+    res.send(files);
+  });
+});
+
+app.get("/play", function (req, res) {
+  const name = "/files/" + req.query.vid;
+  res.sendFile(__dirname + name);
+});
+
+app.post("/delete", function (req, res) {
+  const name = "/files/" + req.query.vid;
+  fs.unlinkSync(__dirname + name, (e) => {
+    if (e) console.log(e);
+  });
 });
 
 app.listen(3000, () => {

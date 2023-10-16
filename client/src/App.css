@@ -1,0 +1,613 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+:root {
+  --primarycolour: #cc0000;
+}
+body {
+  font-family: "Poppins";
+  background-color: black;
+}
+.line {
+  width: 100%;
+  position: absolute;
+  margin-top: 20px;
+}
+.line2 {
+  margin-top: 10px;
+  margin-bottom: -10px;
+}
+.maincont {
+  position: relative;
+}
+.signUpForm {
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 50px;
+  border-radius: 10px;
+  position: absolute;
+  left: 35vw;
+  top: 15vh;
+}
+.signUpForm p {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.3em;
+  margin-bottom: 30px;
+}
+.signUpForm input {
+  padding: 10px;
+  width: 300px;
+  border-radius: 5px;
+  border: 1px solid grey;
+  margin-bottom: 10px;
+}
+.inputlabel {
+  font-size: 0.9em;
+  font-weight: bold;
+  margin-bottom: -5px;
+}
+.check {
+  max-width: 15px;
+  margin-right: 10px;
+}
+.rememberme {
+  margin-block: 5px 20px;
+}
+.bluebut {
+  padding: 12px;
+  color: white;
+  background-color: var(--primarycolour);
+  border-radius: 5px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.loginForm {
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 50px;
+  border-radius: 10px;
+  position: absolute;
+  left: 35vw;
+  top: 15vh;
+}
+.loginForm p {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.3em;
+  margin-bottom: 30px;
+}
+.loginForm input {
+  padding: 10px;
+  width: 300px;
+  border-radius: 5px;
+  border: 1px solid grey;
+  margin-bottom: 10px;
+}
+.switchformcont {
+  margin-top: 20px;
+  text-align: center;
+}
+.switchform {
+  cursor: pointer;
+}
+
+.submaincont {
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.subtop {
+  text-align: center;
+  padding-top: 40px;
+  margin-bottom: 50px;
+}
+.submain {
+  display: flex;
+  justify-content: center;
+  gap: 150px;
+  position: relative;
+}
+.subdet {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.switcher {
+  display: flex;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+.switcherlist {
+  padding: 20px 20px;
+  border-radius: 40px;
+  width: 225px;
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  background-color: var(--primarycolour);
+}
+.switcheritem {
+  cursor: pointer;
+  padding: 5px 10px;
+}
+.switcheritem.activeswitcheritem {
+  background-color: white;
+  color: var(--primarycolour);
+  padding: 5px 10px;
+  border-radius: 40px;
+}
+.subcards {
+  display: flex;
+  gap: 50px;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+.planname {
+  cursor: pointer;
+  display: flex;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 120px;
+  background-color: #831010;
+}
+
+.active {
+  color: var(--primarycolour);
+  font-weight: bold;
+}
+.active .planname {
+  position: relative;
+  background-color: var(--primarycolour);
+}
+.active .planname::after {
+  content: "";
+  position: absolute;
+  bottom: -13%;
+  border: 15px solid transparent;
+  border-top-color: var(--primarycolour);
+  border-bottom: 0;
+}
+.plandevices {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+}
+.subfooter {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+}
+
+.paymentcont {
+  display: flex;
+  position: absolute;
+  left: 25vw;
+  top: 35vh;
+  width: 50%;
+  height: auto;
+  background-color: white;
+  border-radius: 10px;
+}
+.paymentleft {
+  flex: 1;
+  padding: 30px;
+}
+.paymentright {
+  border-radius: 0 10px 10px 0;
+  padding: 30px;
+  flex-basis: 40%;
+  background-color: rgb(211, 211, 211);
+}
+.cardtext {
+  color: grey;
+  font-size: 0.8em;
+}
+.cardelement {
+  border: 1px solid;
+  padding: 12px;
+  border-radius: 5px;
+  margin-block: 20px;
+}
+.paybut {
+  width: auto;
+  margin-right: 10px;
+}
+.buydetailslist {
+  margin-top: 20px;
+  position: relative;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.buydetailsitem {
+  width: 100%;
+}
+.detailsheading {
+  font-size: 0.8em;
+}
+.detailsdesc {
+  font-size: 0.8em;
+  position: absolute;
+  right: 0;
+  padding-top: 4px;
+}
+.managecont {
+  position: absolute;
+  background-color: white;
+  height: auto;
+  max-width: 50%;
+  border-radius: 15px;
+  left: 30vw;
+  top: 30vh;
+  padding: 20px;
+}
+.manageholder {
+  position: relative;
+}
+.cancelbut {
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 4px;
+}
+
+.h3 {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+.status {
+  background-color: #afafe8;
+  color: var(--primarycolour);
+  font-size: 0.7em;
+  padding: 1px 5px;
+  position: absolute;
+  top: 6px;
+  border-radius: 5px;
+}
+.status.cancelled {
+  background-color: #ffc1c1;
+  color: red;
+}
+.currentname {
+  margin-top: 15px;
+}
+.currentdevices {
+  color: grey;
+  font-size: 0.8em;
+}
+.currentprice {
+  margin-block: 5px 20px;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.currentprice::before {
+  content: "₹ ";
+}
+.changebut {
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--primarycolour);
+  border: 2px solid var(--primarycolour);
+  background-color: white;
+  border-radius: 5px;
+  padding: 5px 15px;
+}
+.currentdate {
+  margin-top: 20px;
+  font-size: 0.8em;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+.navbar {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 55px;
+  padding-top: 25px;
+}
+.logo {
+  margin-left: 40px;
+  height: 100px;
+  width: 300px;
+}
+.logoimg {
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+}
+.navlist {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-right: 50px;
+}
+.navitem {
+  cursor: pointer;
+}
+.searchCont {
+  position: absolute;
+  margin-top: 3vh;
+  right: 180px;
+  top: 80px;
+}
+.watchmaincont {
+  color: white;
+  background-color: black;
+  height: 100%;
+  width: 100%;
+}
+.contentrow {
+  padding-inline: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 10px;
+  justify-content: space-around;
+}
+.showbox {
+  background-color: #ffffff10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  width: 275px;
+  height: 140px;
+  overflow: hidden;
+  transition: 0.1s ease-in;
+}
+.showbox:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  background-color: #ffffff40;
+}
+.showpic {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.modalmaincont {
+  /* visibility: hidden; */
+  display: flex;
+  justify-content: center;
+  background-color: #00000088;
+  backdrop-filter: blur(5px);
+  height: 100vh;
+  width: 100%;
+  z-index: 99;
+  position: fixed;
+  top: 0;
+}
+.modalmainbox {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  margin-top: 30px;
+  background-color: #343434aa;
+  backdrop-filter: blur(20px);
+  width: 60%;
+  height: 100%;
+  color: white;
+  transform: scale(0.001);
+  transition: 0.2s ease;
+  overflow: scroll;
+  gap: 20px;
+}
+.modalmainbox::-webkit-scrollbar {
+  display: none;
+}
+.modalmaincont:hover > .modalmainbox {
+  transform: scale(1);
+}
+.modalclosebut {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  border-radius: 20px;
+  height: 40px;
+  width: 40px;
+  background-color: #000000dd;
+  color: white;
+  font-size: large;
+}
+.modalboximg {
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  width: 100%;
+}
+.modallogopic {
+  margin-left: 20px;
+  width: 300px;
+  height: 400px;
+  object-fit: contain;
+  object-position: bottom;
+}
+.playbut {
+  cursor: pointer;
+  width: 100px;
+  padding-block: 10px;
+  margin-left: 25px;
+  background-color: white;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+.showdetails {
+  display: flex;
+  padding-inline: 35px;
+  gap: 50px;
+}
+.leftdet {
+  flex: 1;
+}
+.rightdet {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  flex-basis: 200px;
+}
+
+.footer {
+  color: white;
+  padding-top: 50px;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  background-color: rgba(236, 236, 236, 0.2);
+  backdrop-filter: blur(5px);
+  height: 100vh;
+  width: 100%;
+  padding: 6.25rem 1.25rem;
+  text-align: center;
+}
+
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.inputfile + label {
+  max-width: 80%;
+  font-size: 1.25rem;
+  /* 20px */
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  padding: 0.625rem 1.25rem;
+  /* 10px 20px */
+}
+
+.no-js .inputfile + label {
+  display: none;
+}
+
+.inputfile:focus + label,
+.inputfile.has-focus + label {
+  outline: 1px dotted #000;
+  outline: -webkit-focus-ring-color auto 5px;
+}
+
+/* .inputfile + label * {
+  pointer-events: none;
+  in case of FastClick lib use
+} */
+
+.inputfile + label svg {
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  fill: currentColor;
+  margin-top: -0.25em;
+  /* 4px */
+  margin-right: 0.25em;
+  /* 4px */
+}
+
+/* style 1 */
+
+.inputfile-4 + label {
+  color: #000;
+  -webkit-text-stroke: 1px white;
+  border-bottom: 2px white solid;
+}
+/* 
+.inputfile-4:focus + label,
+.inputfile-4.has-focus + label,
+.inputfile-4 + label:hover {
+  color: #bb5555;
+} */
+
+.inputfile-4 + label figure {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: var(--primarycolour);
+  display: block;
+  padding: 20px;
+  margin: 0 auto 10px;
+}
+
+.inputfile-4:focus + label figure,
+.inputfile-4.has-focus + label figure,
+.inputfile-4 + label:hover figure {
+  background-color: #bb5555;
+}
+
+.inputfile-4 + label svg {
+  width: 100%;
+  height: 100%;
+  fill: #f1e5e6;
+}
+button.submit {
+  display: block;
+  padding: 10px 20px;
+  background-color: var(--primarycolour);
+  color: #ffffff;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+button.submit:hover {
+  cursor: pointer;
+  background-color: #bb5555;
+}
+
+.playermaincont {
+  height: 100vh;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  z-index: 99;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(0, 0, 0, 0.5);
+}
+
+.uploadedvidlistitem {
+  margin: 10px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 5px;
+  width: auto;
+}
+
+.uploadedvidlistitemname {
+  cursor: pointer;
+}
